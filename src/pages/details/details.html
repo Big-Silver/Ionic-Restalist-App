@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar color="restalist" class="details-page-navbar">
+      <ion-buttons>
+          <button ion-button icon-only class="back-button"><ion-icon name="arrow-back"></ion-icon></button>
+      </ion-buttons>
+
+      <ion-title class="page-title">Description</ion-title>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content padding class="details-page-content">
+    <img class="details-picture" [src]="picture">
+    <button ion-button color="light" 
+            class="switch-restaurant-btn left" 
+            (click)="switchToPrevious()"
+            outline><ion-icon name=arrow-dropleft></ion-icon></button>
+    <button ion-button color="light" 
+            class="switch-restaurant-btn right" 
+            (click)="switchToNext()"
+            outline><ion-icon name=arrow-dropright></ion-icon></button>
+    <ion-list class="details-container">
+      <ion-item>
+        <label fixed>Title</label>
+        <ion-input type="text"
+                   [(ngModel)]="title" 
+                   [disabled]="!isEditing"></ion-input>
+      </ion-item>
+      <ion-item>
+        <label stacked>Description</label>
+        <ion-input type="text" 
+                   [(ngModel)]="description" 
+                   [disabled]="!isEditing"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="isEditing">
+        <label stacked>Picture URL</label>
+        <ion-input type="text" 
+                   [(ngModel)]="picture"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row justify-content-end>
+      <button ion-button 
+              (click)="isEditing = !isEditing"
+              *ngIf="!isEditing">Edit</button>
+      <button ion-button
+              (click)="saveChangedDetails()" 
+              *ngIf="isEditing">Save</button>
+      <button ion-button 
+              (click)="resetData()"
+              *ngIf="isEditing">Cancel</button>
+    </ion-row>
+  </ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="restalist">
+      <ion-title>
+        List
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content class="restaurants-page-content">
+    <ion-item>
+      <ion-input placeholder="Search"
+                 [(ngModel)]="searchKey"
+                 (keypress)="onSearch($event)"></ion-input>
+    </ion-item>
+    <ion-list class="restaurants">
+      <ion-item-sliding *ngFor="let restaurant of restaurants | async">
+        <button ion-item class="restaurants" (click)=showRestaurantDetails(restaurant)>
+          <img class="restaurant-picture" [src]="restaurant.picture">
+          <div class="restaurant-info">
+            <h2 class="restaurant-title">{{restaurant.title}}</h2>
+          </div>
+        </button>
+        <ion-item-options class="restaurant-options">
+          <button ion-button color="danger" class="option option-remove">Remove</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>

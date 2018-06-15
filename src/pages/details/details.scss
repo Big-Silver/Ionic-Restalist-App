@@ -1,0 +1,38 @@
+.details-page-navbar {
+  .page-title {
+    color: #fff;
+  }
+}
+
+.details-page-content {
+  position: relative;
+
+  .details-picture {
+    width: 100%;
+    max-height: 500px;
+  }
+
+  .switch-restaurant-btn {
+    position: absolute;
+    top: 50px;
+    height: 100px;
+    width: 30px;
+    font-size: 30px;
+
+    &.left {
+      left: 10px;
+    }
+    &.right {
+      right: 10px;
+    }
+  }
+
+  .details-container {
+    .details-title {
+      font-size: 18px; 
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+}
